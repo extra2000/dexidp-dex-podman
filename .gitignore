@@ -1,0 +1,5 @@
+output/*
+docs-dexidp-pod.yaml
+
+src/*
+!src/.gitkeep

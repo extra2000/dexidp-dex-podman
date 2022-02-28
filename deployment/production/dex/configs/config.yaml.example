@@ -1,0 +1,43 @@
+issuer: https://dex.mydomain/dex
+
+storage:
+  type: mysql
+  config:
+    host: 127.0.0.1
+    port: 3306
+    database: dexdb
+    user: dex
+    password: abcde12345
+    ssl:
+      mode: "false"
+
+logger:
+  level: "debug"
+  format: "text" # can also be "json"
+
+web:
+  http: 127.0.0.1:5556
+
+#telemetry:
+#  http: 127.0.0.1:5558
+
+#grpc:
+#  addr: 127.0.0.1:5557
+
+staticClients:
+  - id: pomerium
+    redirectURIs:
+      - 'https://authenticate.mydomain/oauth2/callback'
+    name: 'Pomerium'
+    secret: CHANGEME
+
+connectors:
+  - type: github
+    id: github
+    name: GitHub
+    config:
+      clientID: CHANGEME
+      clientSecret: CHANGEME
+      redirectURI: https://dex.mydomain/dex/callback
+      teamNameField: slug
+      useLoginAsID: false

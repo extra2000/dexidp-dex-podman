@@ -1,0 +1,8 @@
+(block dexidp_dex_podman
+    (blockinherit container)
+    (allow process mysqld_port_t ( tcp_socket ( name_connect )))
+    (allow process node_t ( tcp_socket ( node_bind )))
+    (allow process self ( tcp_socket ( listen )))
+    (allow process unreserved_port_t ( tcp_socket ( name_bind )))
+    (allow process http_port_t ( tcp_socket ( name_connect )))
+)
