@@ -29,6 +29,11 @@ From the project root directory, ``cd`` into ``src/dexidp-dex/`` and then build:
     cd src/dexidp-dex/
     podman build -t extra2000/dexidp/dex .
 
+On Raspberry Pi platform the build command above may fail. Instead, do the following instructions:
+
+1. In `src/dexidp-dex/Dockerfile`, replace ``"https://github.com/hairyhenderson/gomplate/releases/download/${GOMPLATE_VERSION}/gomplate_${TARGETOS:-linux}-${TARGETARCH:-amd64}${TARGETVARIANT}"`` with ``"https://github.com/hairyhenderson/gomplate/releases/download/v3.10.0/gomplate_linux-arm64"``.
+2. Then, use the build command above with the following argument: ``--build-arg TARGETARCH=arm64``.
+
 Preparing MySQL Database
 ------------------------
 
